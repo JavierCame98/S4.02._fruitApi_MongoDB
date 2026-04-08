@@ -64,7 +64,6 @@ class OrderServiceImplTest {
         responseDto = new OrderResponseDto(ORDER_ID, "John Doe", LocalDate.now().plusDays(1), List.of(orderItem));
     }
 
-    // ─── CREATE ───────────────────────────────────────────────────────────────
 
     @Test
     @DisplayName("create: should save order and return response DTO")
@@ -79,7 +78,6 @@ class OrderServiceImplTest {
         verify(orderRepository).save(order);
     }
 
-    // ─── GET ALL ──────────────────────────────────────────────────────────────
 
     @Test
     @DisplayName("getAll: should return list of response DTOs")
@@ -103,7 +101,6 @@ class OrderServiceImplTest {
         verifyNoInteractions(orderMapper);
     }
 
-    // ─── GET BY ID ────────────────────────────────────────────────────────────
 
     @Test
     @DisplayName("getById: should return response DTO when order exists")
@@ -126,7 +123,6 @@ class OrderServiceImplTest {
                 .hasMessageContaining(ORDER_ID);
     }
 
-    // ─── UPDATE ───────────────────────────────────────────────────────────────
 
     @Test
     @DisplayName("update: should update order and return updated response DTO")
@@ -172,7 +168,6 @@ class OrderServiceImplTest {
         verify(orderRepository, never()).save(any());
     }
 
-    // ─── DELETE ───────────────────────────────────────────────────────────────
 
     @Test
     @DisplayName("delete: should delete order when it exists")
